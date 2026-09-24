@@ -91,7 +91,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .logo span { color: var(--text); font-size: 14px; letter-spacing: 0.32em; font-weight: 500; }
 .logo em { font-style: normal; font-weight: 300; color: var(--muted); }
 .logo.big span { font-size: 16px; }
-.nav-links { display: flex; gap: 34px; margin-left: auto; }
+.nav-links { display: flex; gap: 28px; margin-left: auto; }
 .nav-links a { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(243, 238, 230, 0.78); position: relative; }
 .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease); }
 .nav-links a:hover { color: var(--text); }
@@ -241,6 +241,27 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .svc-n { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold); }
 .svc h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.1; margin: 50px 0 14px; }
 .svc p { font-size: 14px; color: var(--muted); }
+
+
+/* catalogue */
+.catalogue { overflow: hidden; }
+.catalogue::before { content: ''; position: absolute; left: -10%; top: 10%; width: 60%; height: 80%; background: radial-gradient(closest-side, rgba(163, 24, 90, 0.22), transparent); filter: blur(40px); pointer-events: none; }
+.cat-grid { position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+.cat-book { position: relative; display: block; transform: perspective(1400px) rotateY(12deg) rotateX(2deg); transition: transform 0.9s var(--ease); box-shadow: -30px 40px 80px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(243, 238, 230, 0.08); }
+.cat-book.in { transform: perspective(1400px) rotateY(12deg) rotateX(2deg); }
+.cat-book:hover { transform: perspective(1400px) rotateY(0deg) translateY(-6px); }
+.cat-book img { width: 100%; height: auto; }
+.cat-badge { position: absolute; top: 16px; right: 16px; font-size: 11px; letter-spacing: 0.2em; padding: 6px 10px; background: var(--gold); color: #14110c; border-radius: 4px; font-weight: 600; }
+.cat-copy { font-size: 16px; margin: 24px 0 30px; max-width: 520px; }
+.cat-facts { list-style: none; display: flex; gap: 36px; margin-bottom: 36px; }
+.cat-facts b { display: block; font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 3.4vw, 46px); line-height: 1; }
+.cat-facts span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.cat-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+.cat-wa { font-size: 14px; }
+@media (max-width: 860px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .cat-book, .cat-book.in { transform: none; max-width: 520px; }
+}
 
 /* contact */
 .contact { overflow: hidden; }

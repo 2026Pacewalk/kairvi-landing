@@ -47,7 +47,7 @@ const Arrow = () => (
   </svg>
 )
 
-const waLink = (text) => `https://wa.me/${BRAND.phoneRaw}?text=${encodeURIComponent(text)}`
+const waLink = (text) => `https://wa.me/${BRAND.whatsappRaw}?text=${encodeURIComponent(text)}`
 
 /* ---------- sections ---------- */
 function Loader() {
@@ -70,7 +70,7 @@ function Nav() {
     on(); window.addEventListener('scroll', on, { passive: true })
     return () => window.removeEventListener('scroll', on)
   }, [])
-  const links = [['About', '#about'], ['Collections', '#collections'], ['Finishes', '#finishes'], ['Services', '#services'], ['Contact', '#contact']]
+  const links = [['About', '#about'], ['Collections', '#collections'], ['Finishes', '#finishes'], ['Services', '#services'], ['Catalogue', '#catalogue'], ['Contact', '#contact']]
   return (
     <header className={`nav ${solid ? 'solid' : ''} ${open ? 'open' : ''}`}>
       <a href="#top" className="logo" onClick={() => setOpen(false)}>
@@ -79,7 +79,7 @@ function Nav() {
       <nav className="nav-links">
         {links.map(([l, h]) => <a key={h} href={h} onClick={() => setOpen(false)}>{l}</a>)}
       </nav>
-      <a className="btn btn-ghost nav-cta" href={waLink('Hi Kairvi Lighting, please share your latest catalogue.')} target="_blank" rel="noreferrer">
+      <a className="btn btn-ghost nav-cta" href={BRAND.catalogue} download>
         Get Catalogue
       </a>
       <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}><span /><span /></button>
@@ -297,6 +297,39 @@ function Strip() {
   )
 }
 
+function Catalogue() {
+  return (
+    <section className="section catalogue" id="catalogue">
+      <div className="wrap cat-grid">
+        <a className="cat-book" href={BRAND.catalogue} target="_blank" rel="noreferrer" data-reveal aria-label="Open catalogue PDF">
+          <img src={IMAGES.catalogueCover} alt="Kairvi Lighting catalogue 2024–25 cover" loading="lazy" />
+          <span className="cat-badge">PDF</span>
+        </a>
+        <div>
+          <p className="eyebrow" data-reveal>Product catalogue</p>
+          <h2 className="display" data-reveal>The complete <i style={{ whiteSpace: 'nowrap' }}>2024–25</i> catalogue.</h2>
+          <p className="muted cat-copy" data-reveal>
+            Every fixture with full spec sheets — product codes, wattage, CCT, beam angles, lumens, CRI, cut-out sizes,
+            IP ratings and reflector finishes. Built for architects, designers and dealers.
+          </p>
+          <ul className="cat-facts" data-reveal>
+            <li><b>75</b><span>Pages</span></li>
+            <li><b>12</b><span>Collections</span></li>
+            <li><b>{BRAND.catalogueSize}</b><span>PDF</span></li>
+          </ul>
+          <div className="cat-actions" data-reveal>
+            <a className="btn btn-gold" href={BRAND.catalogue} download>Download Catalogue <Arrow /></a>
+            <a className="btn btn-ghost" href={BRAND.catalogue} target="_blank" rel="noreferrer">View Online</a>
+          </div>
+          <a className="link-arrow cat-wa" data-reveal href={waLink('Hi Kairvi Lighting, please send me the product catalogue and price list.')} target="_blank" rel="noreferrer">
+            Or get it with the price list on WhatsApp <Arrow />
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', type: 'Residential', msg: '' })
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value })
@@ -315,6 +348,7 @@ function Contact() {
           <div className="contact-info" data-reveal>
             <div><small>Visit</small><a href={BRAND.mapUrl} target="_blank" rel="noreferrer">{BRAND.company}<br />{BRAND.address}</a></div>
             <div><small>Call</small><a href={`tel:+${BRAND.phoneRaw}`}>{BRAND.phone}</a></div>
+            <div><small>WhatsApp</small><a href={waLink('Hi Kairvi Lighting, I have an enquiry.')} target="_blank" rel="noreferrer">{BRAND.whatsapp}</a></div>
             <div><small>Write</small>{BRAND.emails.map((m) => <a key={m} href={`mailto:${m}`}>{m}</a>)}</div>
           </div>
         </div>
@@ -343,7 +377,7 @@ function Footer() {
         <a href="#top" className="logo big"><Flame size={28} /><span>KAIRVI <em>LIGHTING</em></span></a>
         <p className="muted">{BRAND.tagline}</p>
         <div className="foot-links">
-          <a href="#collections">Collections</a><a href="#finishes">Finishes</a><a href="#services">Services</a><a href="#contact">Contact</a>
+          <a href="#collections">Collections</a><a href="#finishes">Finishes</a><a href="#services">Services</a><a href="#catalogue">Catalogue</a><a href={BRAND.catalogue} download>Download PDF</a><a href="#contact">Contact</a>
         </div>
       </div>
       <div className="wrap foot-bottom">
@@ -376,6 +410,7 @@ export default function App() {
         <Strip />
         <Finishes />
         <Services />
+        <Catalogue />
         <Contact />
       </main>
       <Footer />

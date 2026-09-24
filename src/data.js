@@ -11,8 +11,9 @@ import lio from './assets/img/lio.webp'
 import astro from './assets/img/astro.webp'
 import outdoor from './assets/img/outdoor.webp'
 import contact from './assets/img/contact.webp'
+import catalogueCover from './assets/img/catalogue-cover.webp'
 
-export const IMAGES = { contact }
+export const IMAGES = { contact, catalogueCover }
 
 export const BRAND = {
   name: 'Kairvi Lighting',
@@ -22,6 +23,10 @@ export const BRAND = {
   address: 'Upper Ground Floor, B-35/938/1-A, Opp. MBD Mall, Ferozepur Road, Ludhiana – 141012',
   phone: '+91 98146 22737',
   phoneRaw: '919814622737',
+  whatsapp: '+91 98726 11186',
+  whatsappRaw: '919872611186',
+  catalogue: '/Kairvi-Lighting-Catalogue-2024-25.pdf',
+  catalogueSize: '13.6 MB',
   emails: ['info@kairvilighting.com', 'rajat@kairvilighting.com'],
   web: 'www.kairvilighting.com',
   mapUrl: 'https://maps.google.com/?q=MBD+Mall+Ferozepur+Road+Ludhiana',
