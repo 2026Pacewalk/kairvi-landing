@@ -45,7 +45,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-family: var(--serif); font-weight: 300; line-height: 1.05;
   font-size: clamp(38px, 5.6vw, 84px); letter-spacing: -0.01em;
 }
-.display i, .hero-title i { font-style: italic; color: var(--gold-2); }
+.display i { font-style: italic; color: var(--gold-2); }
 .display.big { font-size: clamp(48px, 8vw, 128px); }
 .muted { color: var(--muted); }
 
@@ -103,41 +103,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav.open .burger span:first-child { top: 20px; transform: rotate(45deg); }
 .nav.open .burger span:last-child { top: 20px; transform: rotate(-45deg); }
 
-/* hero */
-.hero { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end; }
-.hero-bg {
-  position: absolute; inset: 0; background-size: cover; background-position: center;
-  opacity: 0; transform: scale(1.12); transition: opacity 1.6s ease, transform 7s linear;
-}
-.hero-bg.on { opacity: 1; transform: scale(1); }
-.hero-shade {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(12, 11, 10, 0.55) 0%, rgba(12, 11, 10, 0.1) 35%, rgba(12, 11, 10, 0.55) 70%, var(--bg) 100%),
-    linear-gradient(90deg, rgba(12, 11, 10, 0.75) 0%, rgba(12, 11, 10, 0) 60%);
-}
-.hero-inner { position: relative; z-index: 2; padding: 0 var(--pad) clamp(120px, 16vh, 180px); width: 100%; max-width: 1360px; margin: 0 auto; }
-.hero-title { font-family: var(--serif); font-weight: 300; font-size: clamp(54px, 10vw, 156px); line-height: 0.92; letter-spacing: -0.02em; margin-bottom: 40px; }
-.hero-title .line { display: block; overflow: hidden; }
-.hero-title .line > span { display: inline-block; transform: translateY(105%); animation: rise 1.2s var(--ease) forwards; animation-delay: var(--d); }
-.hero-in { opacity: 0; animation: fade 1.2s var(--ease) forwards; animation-delay: var(--d); }
-@keyframes rise { to { transform: none; } }
+/* hero — see src/hero/hero.css */
 @keyframes fade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-.hero-meta {
-  position: absolute; z-index: 2; right: calc(var(--pad) + 64px); bottom: 48px; display: flex; align-items: center; gap: 28px;
-}
-.hero-count { font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
-.hero-count b { color: var(--text); font-weight: 500; }
-.hero-name { display: flex; flex-direction: column; text-align: right; animation: fade 0.9s var(--ease); min-width: 170px; }
-.hero-name span { font-family: var(--serif); font-size: 26px; font-style: italic; line-height: 1.1; }
-.hero-name small { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-.hero-dots { display: flex; gap: 8px; }
-.hero-dots button { width: 28px; height: 2px; background: rgba(243, 238, 230, 0.25); border: 0; cursor: pointer; transition: 0.4s var(--ease); }
-.hero-dots button.on { background: var(--gold); width: 48px; }
-.scroll-cue { position: absolute; z-index: 2; left: 50%; bottom: 28px; width: 1px; height: 56px; background: rgba(243, 238, 230, 0.18); overflow: hidden; }
-.scroll-cue span { position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--gold); animation: cue 2s ease-in-out infinite; }
-@keyframes cue { to { top: 100%; } }
 
 /* marquee */
 .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 26px 0; }
@@ -322,9 +289,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .stat:nth-child(2), .spec:nth-child(2) { border-right: 0; }
   .stat:nth-child(3), .spec:nth-child(3) { padding-left: 0; }
   .stat:nth-child(n + 3), .spec:nth-child(n + 3) { margin-top: 30px; }
-  .hero-meta { left: var(--pad); right: calc(var(--pad) + 64px); bottom: 40px; justify-content: space-between; gap: 14px; }
-  .hero-name { display: none; }
-  .scroll-cue { display: none; }
   .contact-bg { width: 100%; opacity: 0.2; }
 }
 @media (max-width: 600px) {
@@ -332,7 +296,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .svc, .svc + .svc { padding-left: 0; border-right: 0; }
   .svc:nth-child(n + 2) { border-top: 1px solid var(--line); }
   .svc h3 { margin-top: 24px; }
-  .hero-inner { padding-bottom: 110px; }
   .btn { padding: 14px 22px; }
   .swatches { gap: 12px; }
   .swatches span { width: 44px; height: 44px; }

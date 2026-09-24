@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { BRAND, HERO_SLIDES, CATEGORIES, COLLECTIONS, FINISHES, SPECS, SERVICES, IMAGES } from './data'
+import { BRAND, CATEGORIES, COLLECTIONS, FINISHES, SPECS, SERVICES, IMAGES } from './data'
+import HeroSection from './hero/HeroSection'
 
 /* ---------- helpers ---------- */
 function useReveal() {
@@ -84,45 +85,6 @@ function Nav() {
       </a>
       <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}><span /><span /></button>
     </header>
-  )
-}
-
-function Hero() {
-  const [i, setI] = useState(0)
-  useEffect(() => {
-    const t = setInterval(() => setI((x) => (x + 1) % HERO_SLIDES.length), 5500)
-    return () => clearInterval(t)
-  }, [])
-  const s = HERO_SLIDES[i]
-  return (
-    <section className="hero" id="top">
-      {HERO_SLIDES.map((sl, k) => (
-        <div key={sl.name} className={`hero-bg ${k === i ? 'on' : ''}`} style={{ backgroundImage: `url(${sl.img})` }} />
-      ))}
-      <div className="hero-shade" />
-      <div className="hero-inner">
-        <p className="eyebrow hero-in" style={{ '--d': '1.6s' }}>Architectural LED Lighting · Est. Ludhiana</p>
-        <h1 className="hero-title">
-          <span className="line"><span style={{ '--d': '1.7s' }}>Essence of</span></span>
-          <span className="line"><span style={{ '--d': '1.85s' }}><i>Design</i> &amp;</span></span>
-          <span className="line"><span style={{ '--d': '2s' }}>Technology</span></span>
-        </h1>
-        <div className="hero-actions hero-in" style={{ '--d': '2.3s' }}>
-          <a href="#collections" className="btn btn-gold">Explore Collections <Arrow /></a>
-          <a href="#contact" className="btn btn-ghost">Book a Consultation</a>
-        </div>
-      </div>
-      <div className="hero-meta hero-in" style={{ '--d': '2.4s' }}>
-        <div className="hero-count"><b>{String(i + 1).padStart(2, '0')}</b> / {String(HERO_SLIDES.length).padStart(2, '0')}</div>
-        <div className="hero-name" key={s.name}><span>{s.name}</span><small>{s.type}</small></div>
-        <div className="hero-dots">
-          {HERO_SLIDES.map((sl, k) => (
-            <button key={sl.name} aria-label={sl.name} className={k === i ? 'on' : ''} onClick={() => setI(k)} />
-          ))}
-        </div>
-      </div>
-      <a href="#about" className="scroll-cue" aria-label="Scroll"><span /></a>
-    </section>
   )
 }
 
@@ -403,7 +365,7 @@ export default function App() {
       <Loader />
       <Nav />
       <main>
-        <Hero />
+        <HeroSection />
         <Marquee />
         <About />
         <Collections />
