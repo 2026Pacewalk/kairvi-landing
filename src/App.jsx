@@ -346,7 +346,7 @@ function Footer() {
         <span>© {new Date().getFullYear()} Kairvi Lighting · {BRAND.company}</span>
         <span>{BRAND.web}</span>
         <span className="foot-credit">
-          Developed by Social Theory · <a href="https://socialtheory.in/" target="_blank" rel="noopener noreferrer">PACEWALK</a>
+          Developed by <a href="https://socialtheory.in/" target="_blank" rel="noopener noreferrer">Social Theory</a>
         </span>
       </div>
     </footer>
