@@ -260,6 +260,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .foot-links a { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .foot-links a:hover { color: var(--gold); }
 .foot-bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.foot-credit a { color: var(--gold); letter-spacing: 0.08em; border-bottom: 1px solid rgba(200, 162, 90, 0.35); transition: color 0.3s, border-color 0.3s; }
+.foot-credit a:hover { color: var(--gold-2); border-bottom-color: var(--gold-2); }
 
 /* whatsapp */
 .fab {

@@ -345,6 +345,9 @@ function Footer() {
       <div className="wrap foot-bottom">
         <span>© {new Date().getFullYear()} Kairvi Lighting · {BRAND.company}</span>
         <span>{BRAND.web}</span>
+        <span className="foot-credit">
+          Developed by Social Theory · <a href="https://socialtheory.in/" target="_blank" rel="noopener noreferrer">PACEWALK</a>
+        </span>
       </div>
     </footer>
   )
